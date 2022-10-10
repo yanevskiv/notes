@@ -1,0 +1,81 @@
+\clearpage
+\section{Mutual exclusion}
+\textbf{\large Zadatak} Proces je pokrenuo dve niti, gde prva nit popunjava deljeni niz znakova znakom 'a', dok druga nit popunjava niz znakova znakom 'b'. Ove dve niti remete rad jedna drugoj, time \v{s}to se utrkuju (race condition) i "gaze" podatke druge niti svojim podacima. Koriste\'{c}i uslovne kriti\v{c}ne regione, potrebno je za\v{s}titi niz znakova tako da jedna nit ne mo\v{z}e da zapo\v{c}ne upis dok druga nit ne potpuno zavr\v{s}i.
+\\\\
+\textbf{\large I na\v{c}in}\\
+Mo\v{z}emo unutar regiona imati promenljivu \texttt{lock} koju \'{c}emo setovati na \texttt{true} kada ulazimo u kriti\v{c}nu ili na \texttt{false} ukoliko izlazimo iz kriti\v{c}ne sekcije. Ne\'{c}emo ulaziti u kriti\v{c}nu sekciju ukoliko je ona trenutno zaklju\v{c}ana.
+\begin{lstlisting}
+#include <thread.h>
+#include <region.h>
+struct CritcalSection : Region {
+    int lock = false;
+} cs;
+
+void a() {
+    while (true) {
+        region (cs) {
+            await(c.lock == false);
+            cs.lock = true;
+        }
+		work();
+        region (cs) {
+            cs.lock = false;
+        }
+        usleep(10);
+    }
+}
+
+void b() {
+    while (true) {
+        region (cs) {
+            await(cs.lock == false);
+            cs.lock = true;
+        }
+        work();
+		region (cs) {
+            cs.lock = false;
+        }
+        usleep(10);
+    }
+}
+int main() {
+    Thread ta = createThread(a);
+    Thread tb = createThread(b);
+    join(ta);
+    join(tb);
+    return 0;
+}
+\end{lstlisting}
+\textbf{\large  II na\v{c}in}\\
+S obzirom da kriti\v{c}ni region i sam ve\'{c} implementira kriti\v{c}nu sekciju, mo\v{z}emo jednostavno staviti \texttt{work()} unutar regionskog bloka. 
+\begin{lstlisting}
+#include <thread.h>
+#include <region.h>
+struct CritcalSection : Region {
+    // nothing
+} cs;
+
+void a() {
+    while (true) {
+        region (cs) {
+            work();
+        }
+		usleep(10);
+    }
+}
+void b() {
+    while (true) {
+        region (cs) {
+            work();
+        }
+        usleep(10);
+    }
+}
+int main() {
+    Thread ta = createThread(a);
+    Thread tb = createThread(b);
+    join(ta);
+    join(tb);
+    return 0;
+}
+\end{lstlisting}
