@@ -14,7 +14,7 @@ struct CritcalSection : Region {
 void a() {
     while (true) {
         region (cs) {
-            await(c.lock == false);
+            await(cs.lock == false);
             cs.lock = true;
         }
 		work();

@@ -1,6 +1,6 @@
-TARGET = kol_main.pdf
-MAINSRC = kol_main.tex
-SOURCES = $(wildcard kol_sections/*.tex)
+TARGET = kdp-skripta.pdf
+MAINSRC = kdp-skripta.tex
+SOURCES = $(wildcard sections/*.tex)
 TEXCC = lualatex
 
 
@@ -12,6 +12,7 @@ clean:
 	rm -f *.pdf
 	rm -f *.log
 	rm -f *.toc
+	rm -f *.out
 
 .PHONY: clean
 
