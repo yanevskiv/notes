@@ -1,0 +1,27 @@
+\clearpage
+
+\textbf{\Large 14.} Du\v{z} segmenta $x\in\left[-\frac{a}{2}, \frac{a}{2}\right]$, raspore\dj{}ena su naelektrisanja tako da je njihova podu\v{z}na (linijska) gustina odre\dj{}ena izrazom $Q'(x) = 8 Q'_0\left|\frac{x^3}{a^3}\right|$, gde su $Q_0'$ i $a$ pozitivne konstantne veli\v{c}ine. Odrediti ukupnu koli\v{c}inu naelektrisanja na posmatranom segmentu.
+\\\\
+\textbf{\Large Re\v{s}enje}\\
+\input{tikz/14_line.tex}
+\\
+Odlu\v{c}imo se da integralimo u smeru $x$-ose jer je tada $\mathrm d\ell = \mathrm d x$
+\begin{align*}
+    Q' = \frac{\mathrm d Q}{\mathrm d\ell},\; \mathrm d \ell > 0\\
+    Q' = \frac{\mathrm d Q}{\mathrm d x},\; \underline{\mathrm d x > 0}
+\end{align*}
+Postavimo linijski integral:
+\begin{align*}
+    \mathrm dQ = Q'\mathrm dx 
+    && Q = \int_L Q'\mathrm dx = \int_{-a/2}^{a/2} 8Q_0'\frac{|x^3|}{a^3}\mathrm dx
+    && {\color{red} |x^3| = \begin{cases}
+        -x^3, & x < 0\\
+        x^3, & x > 0
+    \end{cases}}
+\end{align*}
+Re\v{s}imo integral u sredini:
+\begin{align*}
+Q = \frac{8Q_0'}{a^3}\int_{-a/2}^{a/2} |x^3|\mathrm d x 
+= \frac{8 Q_0'}{a^3} \underbrace{2\cdot\int_0^{a/2} x^3\mathrm d x}_{\color{red}\int_{-a/2}^0  (-x^3)\mathrm dx + \int_0^{a/2} x^3\mathrm d x} = \frac{\cancelto{4}{16}Q_0'}{a^3}\frac{x^4}{\cancel{4}}\big|_0^{a/2} = \frac{4Q_0'}{\cancel{a^3}}\frac{\cancel{a^4}}{16} = \frac{Q_0' a}{4}
+\end{align*}
+Kona\v{c}no re\v{s}enje: $\boxed{Q = \frac{Q_0' a}{4}}$

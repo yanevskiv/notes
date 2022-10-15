@@ -1,0 +1,24 @@
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis y line=center,
+            axis x line=middle,
+            axis equal,
+            %grid=both,
+            xmax=1.5,xmin=-0.5,
+            ymin=-0.5,ymax=0.5,
+            xlabel=$x$,ylabel=$f$,
+            %xtick={-10,...,10},
+            %ytick={-10,...,10},
+            width=15cm,
+        ]
+        % plot function
+        \addplot[samples=150, mark=none, blue] {x * (1 - x)};
+        % x mark
+        \draw[dashed] (0.5, 0) node [below, outer sep = 5] {$0.5$} -- (0.5, 0.25);
+        % y mark
+        \draw[dashed] (0, 0.25) node [left, outer sep = 5] {$0.25$} -- (0.5, 0.25);
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}

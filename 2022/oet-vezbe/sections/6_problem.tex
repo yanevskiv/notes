@@ -1,0 +1,24 @@
+\clearpage
+\textbf{\Large 6.} Dva mala tela nalaze se u vazduhu, na velikom me\dj{}usobnom rastojanju $d$. Tela se naelektri\v{s}u ukupnim naelektrisanjem $Q$ tako da su naelektrisanja tela istog znaka. Pri tome je naelektrisanje jednog tela $Q_1$, a drugog $Q_2 = Q-Q_1$. Odrediti pri kom odnosu naelektrisanja $Q_1 / Q$ \'{c}e elektrostati\v{c}ke sile izme\dj{}u ovih tela biti najja\v{c}e.
+\\\\
+\textbf{\Large Re\v{s}enje}
+
+\begin{align*}
+    |\mathbf{F_{12}}| = |\mathbf{F_{21}}| = \frac{1}{4\pi\varepsilon_0} |Q_1Q_2| 
+    = \frac{Q_1(Q-Q_1)}{4\pi\varepsilon_0 d^2}
+\end{align*}
+\begin{align*}
+    |\mathbf{F}| = \frac{1}{4\pi\varepsilon_0d^2}Q\cdot \frac{Q_1}{Q_2}\left(Q - Q\cdot\frac{Q_1}{Q_2}\right) 
+    = \frac{Q^2}{4\pi\varepsilon_0d^2}\frac{Q_1}{Q}\left(1 - \frac{Q_1}{Q}\right)
+\end{align*}
+\begin{align*}
+    f\left(\frac{Q_1}{Q}\right) = \frac{Q_1}{Q}\left(1 - \frac{Q_1}{Q}\right),\; 0 \leq \frac{Q_1}{Q} \leq 1
+\end{align*}
+\begin{align*}
+    \boxed{\left(\frac{Q_1}{Q}\right)_\mathrm{opt} = 0,5},\ 
+    \boxed{\mathbf{|F|}_\mathrm{max} = \frac{Q^2}{16\pi\varepsilon_0 d^2}}
+\end{align*}
+
+\input{tikz/6_plot.tex}
+
+
