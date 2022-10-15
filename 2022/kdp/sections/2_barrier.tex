@@ -1,10 +1,10 @@
 \clearpage
-\section{Barrier synchronization}
-\textbf{\large Zadatak} Proces je pokrenuo $\mathrm N$ niti koje treba da zajedni\v{c}ki odrade neki posao \texttt{work1()}, i treba predju na posao \texttt{work2()} tek kada svih $\mathrm N$ niti zavr\v{s}e posao \texttt{work1()}. Sli\v{c}no, potrebno je da svih $\mathrm N$ zavr\v{s}e posao \texttt{work2()} pre nego \v{s}to se predje nazad na posao \texttt{work1()}. Poslovi se moraju obavljati sa ekskluzivnim pravom pristupa. Implementirati ovakvo pona\v{s}anje niti pomo\'{c}u semafora.
+\section{\latin Barrier synchronization}
+\textbf{\large Zadatak} Proces je pokrenuo $N$ niti koje treba da zajedni\v{c}ki odrade neki posao \texttt{work1()}, i treba predju na posao \texttt{work2()} tek kada svih $N$ niti zavr\v{s}e posao \texttt{work1()}. Sli\v{c}no, potrebno je da svih $N$ zavr\v{s}e posao \texttt{work2()} pre nego \v{s}to se predje nazad na posao \texttt{work1()}. Poslovi se moraju obavljati sa ekskluzivnim pravom pristupa. Implementirati ovakvo pona\v{s}anje niti pomo\'{c}u semafora.
 \\\\
 \textbf{\v{S}ta je barijera?}
 \\
-Barijera je ta\v{c}ka u kodu gde je potrebno da dodje odredjen broj niti pre nego \v{s}to niti zaglavljene na barijeri nastave sa svojim izvr\v{s}avanjem. Ukoliko neka nit do\dj{}e do barijere, broj niti na barijeri \'{c}e se pove\'{c}ati za jedan. Ukiliko je u tom slu\v{c}aju i dalje nedovoljan broj niti na barijeri, data nit \'{c}e se blokirati. U suprotnom, data nit \'{c}e deblokirati sve niti ranije zablokirane na barijeri i nastaviti dalje sa izv\v{s}avanjem. Primer kori\v{s}\'{c}enja barijere sa POSIX nitima:
+Barijera (eng. \textlat{Barrier}) je ta\v{c}ka u kodu gde je potrebno da do\dj{}e odre\dj{}en broj niti pre nego \v{s}to niti zaglavljene na barijeri ne nastave sa svojim izvr\v{s}avanjem. Ukoliko neka nit do\dj{}e do barijere, broj niti na barijeri \'{c}e se pove\'{c}ati za jedan. Ukiliko je u tom slu\v{c}aju i dalje nedovoljan broj niti na barijeri, data nit \'{c}e se blokirati. U suprotnom, data nit \'{c}e deblokirati sve niti ranije zablokirane na barijeri i nastaviti dalje sa izv\v{s}avanjem. Primer kori\v{s}\'{c}enja barijere sa \textlat{POSIX} nitima:
 \begin{lstlisting}
 pthread_barrier_t bar;
 pthread_barrier_init(&bar, NULL, 5);
@@ -13,7 +13,7 @@ pthread_barrier_wait(&bar);
 ...
 pthread_barrier_destroy(&bar);
 \end{lstlisting}
-\textbf{\large I na\v{c}in}\\
+\textbf{\large 1. na\v{c}in}\\
 %Ako kod unutar petlje \textbf{while (true) \{ ... \}} zamislimo kao jednu kru\v{z}nicu, kod mo\v{z}emo podeliti na dva sekcije pomo\'{c}u dva "vrata". 
 Nit koja u\dj{}e kroz prva vrata \texttt{door1} pozivom \texttt{wait(door1)} dobija ekskluzivno pravo pristupa i mo\v{z}e da obavi posao \texttt{work1()}. Kada nit zavr\v{s}i posao \texttt{work1()} inkrementira \texttt{counter} i, pre nego \v{s}to do\dj{}e do drugih vrata (t.j. \texttt{wait(door2)}), proverava koja vrata treba otvoriti slede\'{c}e: Ukoliko je \texttt{count < N}, pu\v{s}ta se jo\v{s} jedna nit kroz \texttt{door1} pozivom \texttt{signal(door1)}. Ukoliko je \texttt{count == N}, counter se resetuje na 0 kako bi se mogao koristiti u drugoj sekciji, i jedna nit se pu\v{s}ta kroz druga vrata pozivom \texttt{signal(door2)} u drugu sekciju, To mo\v{z}e biti upravo ta nit koja je pozvala \texttt{signal(door2)} i tek treba da do\dj{}e do \texttt{wait(door2)}, ili neka od $N-1$ niti ve\'{c} zablokirane na \texttt{wait(door2)}.
 \begin{lstlisting}
@@ -60,8 +60,8 @@ int main() {
 }
 
 \end{lstlisting}
-\textbf{\large II na\v{c}in.}\\
-Mo\v{z}emo napraviti strukturu \texttt{struct Barrier} koja implementira barijeru  pomo\'{c}u semafora, i onda instancirati dve barijere: \texttt{bar1} i \texttt{bar2}. Za razliku od "vrata" u prethodnom primeru (\texttt{door1} i \texttt{door2}) koja su ujedno nam obezbedjivala, i sinhronizaciju, i medjusobno isklju\v{c}ivanje, barijere nam samo omogu\'{c}avaju sinhronizaciju, a medjusobno isklju\v{c}ivanje obezbedjujemo sami pomo\'{c}u \textbf{mutex}-a.
+\textbf{\large 2. na\v{c}in.}\\
+Mo\v{z}emo napraviti strukturu \texttt{struct Barrier} koja implementira barijeru  pomo\'{c}u semafora, i onda instancirati dve barijere: \texttt{bar1} i \texttt{bar2}. Za razliku od ``vrata'' u prethodnom primeru (\texttt{door1} i \texttt{door2}) koja su ujedno nam obezbe\dj{}ivala, i sinhronizaciju, i medjusobno isklju\v{c}ivanje, barijere nam  omogu\'{c}avaju samo sinhronizaciju, a medjusobno isklju\v{c}ivanje obezbedjujemo sami pomo\'{c}u \textbf{\textlat{mutex}}-a.
 
 \begin{lstlisting}
 #include <thread.h>

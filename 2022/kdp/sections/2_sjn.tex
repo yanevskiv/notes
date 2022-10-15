@@ -1,13 +1,13 @@
 \clearpage
-\section{Shortest job next}
-\textbf{\large Zadatak} Proces je pokrenuo $N$ niti koje treba pristupe kriti\v{c}noj sekciji po prioritetnom redosledu. Naime, ukoliko postoje vi\v{s}e niti koje istovremeno \v{z}ele da udju u kriti\v{c}nu sekciju, prva ulazi ona koja ima najmanje posla. Potrebno je pomo\'{c}u semafora implementirati metodu \texttt{sjn\_wait(id, prio)} (ni\v{z}a vrednost argumenta \texttt{prio} zna\v{c}i vi\v{s}i prioritet) koja se poziva pre ulaska u kriti\v{c}nu sekciju i metodu \texttt{sjn\_signal()} koja se poziva nakon izlaska iz kriti\v{c}ne sekcije.
+\section{\latin Shortest job next}
+\textbf{\large Zadatak} Proces je pokrenuo $N$ niti koje treba pristupe kriti\v{c}noj sekciji po prioritetnom redosledu. Naime, ukoliko postoje vi\v{s}e niti koje istovremeno \v{z}ele da udju u kriti\v{c}nu sekciju, prva ulazi ona koja ima najmanje posla. Potrebno je pomo\'{c}u semafora implementirati metodu \texttt{sjn\_wait(id, prio)} (ni\v{z}a vrednost argumenta \texttt{prio} zna\v{c}i vi\v{s}i prioritet) koja se poziva pre ulaska u kriti\v{c}nu sekciju, i metodu \texttt{sjn\_signal()} koja se poziva nakon izlaska iz kriti\v{c}ne sekcije.
 \\\\
 \textbf{\v{S}ta je tehnika privatnih semafora?}\\
-Privatni semafor neke niti je semafor inicijalizovan na vrednost 0 koji nit mo\v{z}e da koristi da se ve\v{s}ta\v{c}ki zablokira i sa\v{c}eka dok je neka druga nit ne deblokira. Pre blokiranja na privatnom semaforu neophodno je osloboditi \texttt{mutex} ukoliko se dr\v{z}i (ina\v{c}e nastaje deadlock!) i neophodno je na neki na\v{c}in zapamtiti \texttt{id} niti (ili pokaziva\v{c} na privatni semafor) (npr. u neki \texttt{queue}) kako bi se kasnije taj privatni semafor signalizirao, i time zablokirana nit deblokirala.\\\\
-\textbf{\v{S}ta je tehnika prosledjivanja \v{s}tafetne palice (passing the baton)?}\\
-To je tehnika sinhronizacije gde se - umesto pu\v{s}tanja mutex-a - signalizira neka blokirana nit (npr. blokirana na privatnom semaforu). Time deblokirana nit "dobija" mutex od niti koja je dr\v{z}ala mutex i deblokirana nit mo\v{z}e koristiti podatke koje su za\v{s}ti\'{c}ene pod mutex-om. Nit potom mo\v{z}e da deblokira neku drugu nit i na isti na\v{c}in joj dostavi mutex, a mo\v{z}e i jednostavno osloboditi mutex. Ukoliko ne postoji ni jedna nit kojoj mutex mo\v{z}e da se prosledi, neophodno je osloboditi mutex. \v{S}tafetna palica koja se prosledjuje jeste zapravo mutex. 
+Privatni semafor neke niti je semafor inicijalizovan na vrednost 0 koji nit mo\v{z}e da koristi da se ve\v{s}ta\v{c}ki zablokira i sa\v{c}eka dok je neka druga nit ne deblokira. Pre blokiranja na privatnom semaforu neophodno je osloboditi \texttt{mutex} ukoliko se dr\v{z}i (ina\v{c}e nastaje \textlat{deadlock}!) i neophodno je na neki na\v{c}in zapamtiti \texttt{id} niti (ili pokaziva\v{c} na privatni semafor) kako bi se kasnije taj privatni semafor signalizirao, i time zablokirana nit deblokirala.\\\\
+\textbf{\v{S}ta je tehnika prosledjivanja \v{s}tafetne palice (\textlat{passing the baton})?}\\
+To je tehnika sinhronizacije gde se - umesto pu\v{s}tanja \textlat{mutex}-a - signalizira neka blokirana nit (npr. blokirana na privatnom semaforu). Time deblokirana nit ``dobija'' \textlat{mutex} od niti koja je dr\v{z}ala \textlat{mutex} i deblokirana nit mo\v{z}e koristiti podatke koje su za\v{s}ti\'{c}ene pod \textlat{mutex}-om. Nit potom mo\v{z}e da deblokira neku drugu nit i na isti na\v{c}in joj dostavi \textlat{mutex}, a mo\v{z}e i jednostavno da oslobodi \textlat{mutex}. Ukoliko ne postoji ni jedna nit kojoj \textlat{mutex} mo\v{z}e da se prosledi, neophodno je osloboditi \textlat{mutex}. \textlat{Mutex} predstavlja \v{s}tafetnu palicu koja se prosle\dj{}uje izme\dj{}u niti.
 \\\\
-\textbf{\large I na\v{c}in - sa prosledjivanjem \v{s}tafetne palice}\\
+\textbf{\large 1. na\v{c}in - sa prosle\dj{}ivanjem \v{s}tafetne palice}\\
 Ovo re\v{s}enje li\v{c}i na implementaciju \texttt{Signal-and-Wait} monitora.
 \begin{lstlisting}
 #include <thread.h>
@@ -77,7 +77,7 @@ int main() {
 }
 
 \end{lstlisting}
-\textbf{\large II na\v{c}in - bez prosledjivanja \v{s}tafetne palice} \\
+\textbf{\large 2. na\v{c}in - bez prosle\dj{}ivanja \v{s}tafetne palice} \\
 Ovo re\v{s}enje li\v{c}i na implementaciju \texttt{Signal-and-Continue} monitora.
 \begin{lstlisting}
 #include <thread.h>

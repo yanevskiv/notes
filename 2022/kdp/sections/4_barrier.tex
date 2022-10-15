@@ -1,6 +1,6 @@
 \clearpage
-\section{Barrier synchronization}
-\textbf{\large Zadatak} Proces je pokrenuo $\mathrm N$ niti koje treba da zajedni\v{c}ki odrade neki posao \texttt{work1()}, i treba predju na posao \texttt{work2()} tek kada svih $\mathrm N$ niti zavr\v{s}e posao \texttt{work1()}. Sli\v{c}no, potrebno je da svih $\mathrm N$ zavr\v{s}e posao \texttt{work2()} pre nego \v{s}to se predje nazad na posao \texttt{work1()}. Poslovi se moraju obavljati sa ekskluzivnim pravom pristupa. Implementirati ovakvo pona\v{s}anje pomo\'{c}u monitora.
+\section{\latin Barrier synchronization}
+\textbf{\large Zadatak} Proces je pokrenuo $N$ niti koje treba da zajedni\v{c}ki odrade neki posao \texttt{work1()}, i treba predju na posao \texttt{work2()} tek kada svih $N$ niti zavr\v{s}e posao \texttt{work1()}. Sli\v{c}no, potrebno je da svih $N$ zavr\v{s}e posao \texttt{work2()} pre nego \v{s}to se predje nazad na posao \texttt{work1()}. Poslovi se moraju obavljati sa ekskluzivnim pravom pristupa. Implementirati ovakvo pona\v{s}anje niti pomo\'{c}u monitora.
 \\\\
 \textbf{Re\v{s}enje sa \texttt{Signal-and-Wait} disciplinom}
 \begin{lstlisting}

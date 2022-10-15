@@ -1,8 +1,8 @@
 \clearpage
-\section{Mutual exclusion}
-\textbf{\large Zadatak} Proces je pokrenuo dve niti, gde prva nit popunjava deljeni niz znakova znakom 'a', dok druga nit popunjava niz znakova znakom 'b'. Ove dve niti remete rad jedna drugoj, time \v{s}to se utrkuju (race condition) i "gaze" podatke druge niti svojim podacima. Koriste\'{c}i uslovne kriti\v{c}ne regione, potrebno je za\v{s}titi niz znakova tako da jedna nit ne mo\v{z}e da zapo\v{c}ne upis dok druga nit ne potpuno zavr\v{s}i.
+\section{\latin Mutual exclusion}
+\textbf{\large Zadatak} Proces je pokrenuo dve niti, gde obe rade neki posao \texttt{work()} koji se mora obavljati sa ekskluzivnim pravom pristupa (npr. upis u fajl). Obezbediti ovaj vid sinhronizacije pomo\'{c}u uslovnih kriti\v{c}nih regiona. 
 \\\\
-\textbf{\large I na\v{c}in}\\
+\textbf{\large 1. na\v{c}in}\\
 Mo\v{z}emo unutar regiona imati promenljivu \texttt{lock} koju \'{c}emo setovati na \texttt{true} kada ulazimo u kriti\v{c}nu ili na \texttt{false} ukoliko izlazimo iz kriti\v{c}ne sekcije. Ne\'{c}emo ulaziti u kriti\v{c}nu sekciju ukoliko je ona trenutno zaklju\v{c}ana.
 \begin{lstlisting}
 #include <thread.h>
@@ -46,7 +46,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-\textbf{\large  II na\v{c}in}\\
+\textbf{\large  2. na\v{c}in}\\
 S obzirom da kriti\v{c}ni region i sam ve\'{c} implementira kriti\v{c}nu sekciju, mo\v{z}emo jednostavno staviti \texttt{work()} unutar regionskog bloka. 
 \begin{lstlisting}
 #include <thread.h>

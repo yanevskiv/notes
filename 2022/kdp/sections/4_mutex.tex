@@ -1,6 +1,6 @@
 \clearpage
-\section{Mutual exclusion}
-\textbf{\large Zadatak} Proces je pokrenuo dve niti, gde prva nit popunjava deljeni niz znakova znakom 'a', dok druga nit popunjava niz znakova znakom 'b'. Ove dve niti remete rad jedna drugoj, time \v{s}to se utrkuju (race condition) i "gaze" podatke druge niti svojim podacima. Koriste\'{c}i monitore, potrebno je za\v{s}titi niz znakova tako da jedna nit ne mo\v{z}e da zapo\v{c}ne upis dok druga nit ne potpuno zavr\v{s}i.
+\section{\latin Mutual exclusion}
+\textbf{\large Zadatak} Proces je pokrenuo dve niti, gde obe rade neki posao \texttt{work()} koji se mora obavljati sa ekskluzivnim pravom pristupa (npr. upis u fajl). Obezbediti ovaj vid sinhronizacije pomo\'{c}u monitora. 
 \\\\
 \textbf{Re\v{s}enje sa \texttt{Signal-and-Wait} disciplinom}
 \begin{lstlisting}

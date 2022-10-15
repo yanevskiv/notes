@@ -15,4 +15,3 @@ clean:
 	rm -f *.out
 
 .PHONY: clean
-

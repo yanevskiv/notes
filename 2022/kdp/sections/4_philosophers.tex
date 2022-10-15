@@ -1,8 +1,8 @@
 \clearpage
-\section{Dining philosophers}
+\section{\latin Dining philosophers}
 \textbf{\large Zadatak} Proces je pokrenuo 5 niti koje simuliraju pona\v{s}anje filozofa za stolom. Filozof neko vreme misli, uzima levu i desnu vilju\v{s}ku na stolu, jede ru\v{c}ak na tanjiru, vra\'{c}a vilju\v{s}ke, i nastavlja da misli. Filozof ne mo\v{z}e da uzme levu vilju\v{s}ku ukoliko ju je trenutno filozof levo koristi, i sli\v{c}no ne mo{z}e da uzme desnu vilju\v{s}ku ukoliko ju je trenutno filozof desno koristi. Ukoliko svih pet filozofa u isto vreme poku\v{s}aju da uzmu levu vilju\v{s}ku, ni jedan filozof ne\'{c}e mo\'{c}i da uzme desnu vilju\v{s}ku, i tada nastupa deadlock. Implementirati pona\v{s}anje filozofa pomo\'{c}u monitora tako da se ovaj deadlock ne mo\v{z}e dogoditi.
 \\\\
-\textbf{\large I na\v{c}in}\\
+\textbf{\large 1. na\v{c}in}\\
 Re\v{s}enje gde obr\'{c}emo uzimanja vilju\v{s}aka redosled parnim filozofa.
 \\\\
 \textbf{Re\v{s}enje sa \texttt{Signal-and-Wait} disciplinom}
@@ -152,8 +152,9 @@ int main() {
 }
 
 \end{lstlisting}
-\textbf{\large II na\v{c}in}\\
-Re\v{s}enje gde imamo "ticket" inicijalizovan na $N-1$, gde je $N$ broj filozofa.
+\clearpage
+\textbf{\large 2. na\v{c}in}\\
+Re\v{s}enje gde imamo ``\textlat{ticket}'' inicijalizovan na $N-1$, gde je $N$ broj filozofa.
 \\\\
 \textbf{Re\v{s}enje sa \texttt{Signal-and-Wait} disciplinom}
 \begin{lstlisting}
@@ -316,8 +317,8 @@ int main() {
 }
 
 \end{lstlisting}
-
-\textbf{\large III na\v{c}in}\\
+\clearpage
+\textbf{\large 3. na\v{c}in}\\
 Re\v{s}enje gde uzimamo obe vilju\v{s}ke u isto vreme i vra\'{c}amo obe vilju\v{s}ke u isto vreme, pritom bude\'{c}i filozofa levo ili desno ukoliko oni ranije nisu uspeli.
 \\\\
 \textbf{Re\v{s}enje sa \texttt{Signal-and-Wait} disciplinom}

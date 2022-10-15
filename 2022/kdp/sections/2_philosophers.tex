@@ -1,9 +1,9 @@
 \clearpage
-\section{Dining philosophers}
+\section{\latin Dining philosophers}
 \textbf{\large Zadatak} Proces je pokrenuo 5 niti koje simuliraju pona\v{s}anje filozofa za stolom. Filozof neko vreme misli, uzima levu i desnu vilju\v{s}ku na stolu, jede ru\v{c}ak na tanjiru, vra\'{c}a vilju\v{s}ke, i nastavlja da misli. Filozof ne mo\v{z}e da uzme levu vilju\v{s}ku ukoliko ju je trenutno filozof levo koristi, i sli\v{c}no ne mo{z}e da uzme desnu vilju\v{s}ku ukoliko ju je trenutno filozof desno koristi. Ukoliko svih pet filozofa u isto vreme poku\v{s}aju da uzmu levu vilju\v{s}ku, ni jedan filozof ne\'{c}e mo\'{c}i da uzme desnu vilju\v{s}ku, i tada nastupa deadlock. Implementirati pona\v{s}anje filozofa pomo\'{c}u semafora tako da se ovaj deadlock ne mo\v{z}e dogoditi.
 \\\\
 \textbf{\v{S}ta je graf alokacije resursa?}\\
-Graf alokacije resursa (eng. Resource allocation graph (RAG)) je usmeren graf u kome \v{c}vorovi predstavljaju niti ili resurse, a grane povezuju niti i resurse. Ukoliko je grana usmerena od \v{c}vora niti ka \v{c}voru resursa ($\textrm{nit}\rightarrow \textrm{resurs}$), data nit mo\v{z}e u nekom trenutku zauzeti taj resurs. Ukoliko je nit usmerena od \v{c}vora resursa ka \v{c}voru niti ($\textrm{nit}\leftarrow \textrm{resurs}$), data nit je zauzela resurs i trenutno ga dr\v{z}i. Ukoliko se u grafu pojavi \textbf{petlja}, nastaje deadlock. 
+Graf alokacije resursa (eng. \textlat{Resource allocation graph (RAG)}) je usmeren graf u kome \v{c}vorovi predstavljaju niti ili resurse, a grane povezuju niti i resurse. Ukoliko je grana usmerena od \v{c}vora niti ka \v{c}voru resursa ($\textrm{nit}\rightarrow \textrm{resurs}$), data nit mo\v{z}e u nekom trenutku zauzeti taj resurs. Ukoliko je nit usmerena od \v{c}vora resursa ka \v{c}voru niti ($\textrm{nit}\leftarrow \textrm{resurs}$), data nit je zauzela resurs i trenutno ga dr\v{z}i. Ukoliko se u grafu pojavi \textbf{petlja}, nastaje \textlat{deadlock}. 
 Primer grafa alokacije resursa:
 \begin{figure}[h]
 \centering
@@ -25,11 +25,11 @@ Primer grafa alokacije resursa:
   {
         p_1 -> f_1 [rectangle] -> p_2 -> f_2 [rectangle] -> p_3 -> f_3 [rectangle] -> p_4 -> f_4 [rectangle] -> p_5 -> f_5 [rectangle] -> p_1
     };%
-    \caption{Deadlock}
+    \caption{\textlat{Deadlock} filozofa}
 \end{subfigure}
 \end{figure}
 \\
-\textbf{\large I na\v{c}in}\\
+\textbf{\large 1. na\v{c}in}\\
 Mo\v{z}emo obrnuti redosled uzimanja vilju\v{s}aka jednog filozofa (ili parnih filozofa) i time otkloniti mogu\'{c}nost pojave petlje u grafu alokacije resursa. 
 \begin{lstlisting}
 #include <thread.h>
@@ -66,7 +66,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-\textbf{\large II na\v{c}in}\\
+\textbf{\large 2. na\v{c}in}\\
 Mo\v{z}emo napraviti uposleno \v{c}ekanje i zauzeti vilju\v{s}ke kada postanu slobodne (\textbf{Napomena:} Uposleno \v{c}ekanje je neefikasno i kada su na raspolaganju semafori, obi\v{c}no je lo\v{s}e praviti uposleno \v{c}ekanje ukoliko ono nije neophodno)
 \begin{lstlisting}
 #include <thread.h>
@@ -113,8 +113,8 @@ int main() {
 }
 
 \end{lstlisting}
-\textbf{\large III na\v{c}in}\\
-Mo\v{z}emo imati semafor \texttt{ticket}  inicijalizovan na vrednost $N - 1$, ukoliko je $N$ broj filozofa. Tako poslednji filozof ne mo\v{z}e da zahteva vilju\v{s}ke ukoliko $N-1$ filozofa pre zahtevalo vilj\v{s}ke , pa se ne mo\v{z}e javiti petlja.
+\textbf{\large 3. na\v{c}in}\\
+Mo\v{z}emo imati semafor \texttt{ticket}  inicijalizovan na vrednost $N - 1$, ukoliko je $N$ broj filozofa. Tako poslednji filozof ne mo\v{z}e da zahteva vilju\v{s}ke ukoliko $N-1$ filozofa pre zahtevalo vilj\v{s}ke, pa se ne mo\v{z}e javiti petlja.
 
 \begin{lstlisting}
 #include <thread.h>
@@ -152,7 +152,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-\textbf{\large IV na\v{c}in}\\
+\textbf{\large 4. na\v{c}in}\\
 Mo\v{z}emo koristiti privatne semafore filozofa na koji \'{c}e se filozof blokirati ukoliko ne mo\v{z}e da uzme vilju\v{s}ke. Filozof mora da najavi da nije uspeo da uzme vilju\v{s}ke (preko \texttt{hungry[]}) kako bi filozof koji osloba\dj{}a vilju\v{s}ke znao da li treba da poku\v{s}a da deblokira filozofa levo ili desno pored sebe.
 \begin{lstlisting}
 #include <thread.h>

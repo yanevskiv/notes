@@ -1,10 +1,10 @@
 \clearpage
-\section{Readers and writers}
-\textbf{\large Zadatak} Proces ima jedan otvoren deljeni fajl i pokrenuo je $NR$ niti \v{c}italaca koje izvr\v{s}avaju funkciju \texttt{reader(int id)} i $NW$ niti pisaca koje izvr\v{s}avaju funkciju \texttt{writer(int id)}. Niti \v{c}itaoci mogu istovremeno \v{c}itati iz fajla, dok niti pisci moraju imati ekskluzivno pravo pristupa. Ne sme se dogoditi da \v{c}italac i pisac pristupaju fajlu u isto vreme, i takodje se ne sme dogoditi da dva pisca upisuju u fajl u isto vreme.\\\\
-\textbf{\v{S}ta je rwlock?}\\
-Readers/Writers lock je brava koja \v{s}titi neki resurs i koja mo\v{z}e da se zaklju\v{c}a za eksluzivno pravo (potrebno za writer-e) ili za deljeno pravo prsitupa (potrebno za reader-e). U ovom primeru \'{c}emo napraviti \texttt{rw\_lock(...)} pomo\'{c}u semafora i tehnikom prosle\dj{}ivanja \v{s}tafetne palice .
+\section{\latin Readers and writers}
+\textbf{\large Zadatak} Proces ima jedan otvoren deljeni fajl i pokrenuo je $NR$ niti \v{c}italaca koje izvr\v{s}avaju funkciju \texttt{reader(int id)} i $NW$ niti pisaca koje izvr\v{s}avaju funkciju \texttt{writer(int id)}. Niti \v{c}itaoci mogu istovremeno \v{c}itati iz fajla, dok niti pisci moraju imati ekskluzivno pravo pristupa. Ne sme se dogoditi da \v{c}italac i pisac pristupaju fajlu u isto vreme, i ne sme dogoditi da dva pisca upisuju u fajl u isto vreme.\\\\
+\textbf{\v{S}ta je \textlat{rwlock}?}\\
+\textlat{Readers/Writers lock} je brava koja \v{s}titi neki resurs, i koja mo\v{z}e da se zaklju\v{c}a na dva odvojena na\v{c}ina: za eksluzivno pravo pristupa (\texttt{exclusive (writer) lock}) ili za deljeno pravo prsitupa (\texttt{shared (reader) lock}). U ovom primeru \'{c}emo implementirati \texttt{rw\_lock(...)} pomo\'{c}u semafora i tehnikom prosle\dj{}ivanja \v{s}tafetne palice, i na taj na\v{c}in re\v{s}iti problem \v{c}itaoca i pisaca.
 \\\\
-Primer rwlock-a sa \texttt{flock()}:
+Primer \textlat{rwlock}-a sa \texttt{flock()}:
 \begin{lstlisting}
 int fd = open("file.txt", O_CREAT | O_RDWR);
 ...
@@ -21,7 +21,7 @@ void reader() {
 ...
 close(fd);
 \end{lstlisting}
-Primer rwlock-a sa POSIX nitima:
+Primer \textlat{rwlock}-a sa \textlat{POSIX} nitima:
 \begin{lstlisting}
 pthread_rwlock_t rw;
 pthread_rwlock_init(&rw, NULL);
@@ -132,7 +132,8 @@ int main() {
 }
 
 \end{lstlisting}
-\textbf{\large Re\v{s}enje na\v{c}in (FIFO ulazak)}
+\clearpage
+\textbf{\large Re\v{s}enje (\textlat{FIFO} ulazak)}
 \begin{lstlisting}
 #include <thread.h>
 #include <sem.h>
