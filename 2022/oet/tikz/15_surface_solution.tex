@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+    % shade rectangle
+    \draw[fill=orange!40] (0,0) rectangle (2,1);
+
+    % draw dx
+    \draw[black,fill=magenta!60] (1,0) rectangle (1.1, 1);
+    \node[magenta] at (1,0) [below left, outer sep=2] {\tiny $x$};
+    \node[magenta] at (1,0) [below right] {\tiny $x + \mathrm dx$};
+    \draw[magenta, -Latex] (0.7, 0.2) -- (1, 0.2);
+    \draw[magenta, -Latex] (1.4, 0.2) node [above ]{\tiny $\mathrm dx$} -- (1.1, 0.2);
+    \node[magenta] at (1,1) [above] {\tiny $\mathrm dQ, \mathrm dS$};
+    
+    % y-axis
+    \draw[-Latex] (0, -0.5) -- (0, 1.5) node [above left] {$y$};
+    
+    % x-axis
+    \draw [-Latex] (-0.5, 0) -- (2.5, 0) node [below right] {$x$};
+    
+    % origin
+    \node at (0, 0) [below left] {$O$};
+    
+    % b-line
+    \draw (-0.1,1) node [left]{$b$} -- (2,1);
+    
+    % a-line
+    \draw (2, -0.1) node[below] {$a$} -- (2, 1);
+    
+    % rho_s
+    \node at (0.3, 0.75) {$\mathrm{\rho}_S$};
+    
+\end{tikzpicture}

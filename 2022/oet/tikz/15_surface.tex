@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+    % shade rectangle
+    \shade[left color=white,right color=black] (0,0) rectangle (2,1);
+    
+    % y-axis
+    \draw[-Latex] (0, -0.5) -- (0, 1.5) node [above left] {$y$};
+    
+    % x-axis
+    \draw [-Latex] (-0.5, 0) -- (2.5, 0) node [below right] {$x$};
+    
+    % origin
+    \node at (0, 0) [below left] {$O$};
+    
+    % b-line
+    \draw (-0.1,1) node [left]{$b$} -- (2,1);
+    
+    % a-line
+    \draw (2, -0.1) node[below] {$a$} -- (2, 1);
+    
+    % rho_s
+    \node at (0.3, 0.75) {$\mathrm{\rho}_S$};
+    
+\end{tikzpicture}

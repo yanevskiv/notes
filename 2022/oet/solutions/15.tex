@@ -1,0 +1,16 @@
+\begin{figure}[h]
+    \centering
+    \input{tikz/15_surface_solution.tex}
+\end{figure}
+\begin{align*}
+    \rho_S &= \frac{\mathrm dQ}{\mathrm dS}, \mathrm dS > 0\\
+    \mathrm dQ &= \rho_S\mathrm dS\\
+    Q &= \int_S\rho_S\mathrm dS
+\end{align*}
+\begin{align*}
+    Q = \int_0^a kxb\cdot \mathrm dx = kb\int_0^a x\mathrm dx = kb\frac{a^2}{2}, k = \frac{2Q}{ba^2}\\
+    \boxed{\rho_S = k\cdot x = \frac{2Qx}{a^2 b}, \begin{array}{c}
+         0 \leq x \leq a \\
+         0 \leq y \leq b 
+    \end{array}}    
+\end{align*}

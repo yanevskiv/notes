@@ -1,0 +1,13 @@
+\begin{align*}
+    \rho = \frac{\mathrm dQ}{\mathrm dV}, \mathrm dQ = \rho\mathrm dV, Q = \int_V\rho\mathrm dV,
+\end{align*}
+\begin{align*}
+    dV &= \frac{4}{3}(r + \mathrm dr)^3\pi - \frac{4}{3}r^3\pi = \frac{4}{3}\pi\left(\cancel{r^3} + 3r^2\mathrm dr + 3r{\mathrm dr}^2 + {\mathrm dr}^3 - r^3\right)\\
+    dV &= \frac{4}{3}\left(3r^2\mathrm dr + 3r{\mathrm dr}^2 + {\mathrm dr}^3\right)
+    \overset{\mathrm dr\rightarrow 0}{\approx} 4r^2\pi\mathrm dr, \mathrm dr > 0
+\end{align*}
+
+\begin{align*}
+    Q &= \int_0^2\rho_0\frac{a - r}{a}4r^2\pi\mathrm dr = \frac{\rho_0 4\pi}{a}\left(\int_0^a ar^2\mathrm dr - \int_0^a r^3\mathrm dr\right)\\
+    Q &= \frac{\rho_04\pi}{a}\left(a\frac{a^3}{3} - \frac{a^4}{4}\right) = \frac{\rho\cancel{4}\pi}{a}\frac{4a^4 - 3a^4}{\cancel{12}\cdot 3} = \boxed{\frac{\rho_0\pi a^3}{3}}
+\end{align*}

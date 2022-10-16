@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage[a4paper, margin=2.3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{cmsrb}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta}
+\usepackage[T1,OT2]{fontenc}
+\usepackage[serbian]{babel}
+\title{Osnovi elektrotehnike 1 - Zadaci sa ve\v{z}bi - Skripta}
+\author{Marko \v{Z}uti\'{c}, Ivan Janevski}
+\date{Oktobar 2022}
+\renewcommand{\contentsname}{Sadr\v{z}aj}
+\titleformat{\section}[display]{\normalfont\bfseries}{}{0pt}{\huge}
+\captionsetup{labelformat=empty}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+\newcommand\textlat[1]{{\fontencoding{T1}\fontfamily{wncyr}\selectfont #1}}
+\newcommand\cyrillic{\fontencoding{OT2}\fontfamily{wncyr}\selectfont}
+\newcommand\latin{\fontencoding{T1}\fontfamily{wncyr}\selectfont}
+\newenvironment{nocyrillic}{\fontencoding{T1}\fontfamily{wncyr}\selectfont}{\fontencoding{OT2}\fontfamily{wncyr}\selectfont}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+\chapter{Ve\v{z}be}
+\section{Prva nedelja}
+
+\input{sections/4_problem.tex}
+\input{sections/6_problem.tex}
+\input{sections/14_problem.tex}
+
+\end{document}

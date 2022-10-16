@@ -1,0 +1,27 @@
+$\underline{a,\rho_S, \mathbf{E} = ?}$
+
+Beskona\v{c}no duga\v{c}ka nit $Q' = \mathrm{const}.$
+\begin{align*}
+    \mathbf{E} &= \frac{Q'}{4\pi\varepsilon_0 D}\left((\sin\theta_2 - \sin\theta_1)\mathbf{i_n} + (\cos\theta_2 - \cos\theta_1)\mathbf{i_p}\right)\; \theta_1 = -\frac{\pi}{2},\; \theta_2 = \frac{\pi}{2}\\
+    \mathbf E &= \boxed{\frac{Q'}{2\pi\varepsilon_0 D}\mathbf{i_n}}
+\end{align*}
+
+Ravnomerno naelektrisana traka $\rho_S = \mathrm{const}.$
+\begin{align*}
+    Q_L &= \rho_S\cdot L\cdot a\\
+    \mathrm dQ_L &= \rho_SLd\ell\\
+    \mathrm dQ' &= \frac{\mathrm dQ_L}{L} = \rho_S\mathrm d\ell
+\end{align*}
+
+\begin{align*}
+    \mathrm dE &= \frac{\mathrm dQ'}{2\pi\varepsilon_0 r},\; \mathrm dQ' = \rho_S\mathrm d\ell = \rho_S\mathrm dp, dp > 0\\
+    \mathrm dE_n &= \mathrm dE\cos\theta,\;\mathrm dE_p = -\mathrm dE\sin\theta\\
+    \cos\theta &= \frac{D}{r},\;\frac{1}{r}=\frac{\cos\theta}{D}\\
+    \tan\theta &= \frac{p}{D},\; \mathrm dp = D\frac{\mathrm d\theta}{\cos^2\theta}\\
+    \mathrm dE &= \frac{\rho_S \cancel{D}\mathrm d\theta}{ 2\pi\varepsilon_0\cdot \cos^{\cancel{2}}\theta} \frac{\cancel{\cos\theta}}{\cancel{D}} = \frac{\rho_S\mathrm d\theta}{2\pi\varepsilon_0\cos\theta}\\
+    \mathrm dE_n &= \mathrm dE\cdot\cos\theta = \frac{\rho_S}{2\pi\varepsilon_0}\mathrm d\theta,\; \mathrm dE_p = -\mathrm dE\sin\theta = -\frac{\rho_S}{2\pi\varepsilon_0}\frac{\sin\theta}{\cos\theta}\mathrm d\theta\\
+    E_n &= \int_{\theta_1}^{\theta_2}\mathrm dE_n = \frac{\rho_S}{2\pi\varepsilon_0}\int_{\theta_1}^{\theta_2}\mathrm d\theta = \frac{\rho_S}{2\pi\varepsilon_0}(\theta_2 - \theta_1)\\
+    E_p &= \int_{\theta_1}^{\theta_2}\mathrm dEp = - \frac{\rho_S}{2\pi\varepsilon_0}\int_{\theta_1}^{\theta_2}\frac{\sin\theta}{\cos\theta}\mathrm d\theta\; \left\{\begin{array}{c}\cos\theta = x\\ \mathrm dx = -\sin\theta\mathrm d\theta\end{array} \right\}\\
+    E_p &= \frac{\rho_S}{2\pi\varepsilon_0}\int_{\cos\theta_1}^{\cos\theta_2}\frac{\mathrm dx}{x} = \frac{\rho_S}{2\pi\varepsilon_0}\ln\frac{\cos\theta_2}{\cos\theta_1}\\
+    \mathbf E &= E_p\cdot \mathbf{i_p} + E_n\cdot\mathbf{i_n} = \boxed{\frac{\rho_S}{2\pi\varepsilon_0}\left(\ln\frac{\cos\theta_2}{\cos\theta_1}\mathbf{i_p} + (\theta_2 - \theta_1)\mathbf{i_n}\right)}
+\end{align*}

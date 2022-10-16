@@ -1,36 +1,32 @@
-\begin{figure}[h]
-    \centering
-    \begin{tikzpicture}
-        % Coordinates
-        \coordinate (O) at (0, 0);
-        \coordinate (A) at (-2, 0);
-        \coordinate (B) at (2, 0);
-        \coordinate (M) at (0, 4);
-        
-        % Coordinate system
-        \draw[-Latex] (-3, 0) -- (3, 0) node [below] {$x$};
-        \draw[-Latex] (0, -.5) -- (0, 4.5) node [right] {$y$};
-        
-        % Epsilon 0
-        \node at (-3, 4) {$\varepsilon_0$};
-        
-        % Point charges and origin
-        \draw (A) node[circle, fill, inner sep =1.5] {} 
-            node [above, inner sep = 10] {$A$} 
-            node [below right, inner sep = 5] {$Q_1$} 
-            node [below left, inner sep = 5] {$-a$}; 
-        \draw (B) node[circle, fill, inner sep = 1.5] {} 
-            node [above, inner sep = 10] {$B$} 
-            node [below right, inner sep = 5] {$Q_2$} 
-            node [below left, inner sep = 5] {$a$}; 
-        \draw (M) node[circle, fill, inner sep = 1.5] {} 
-            node [right, inner sep = 5] {$M$} 
-            node [above left, inner sep = 4] {$Q_3$} 
-            node [below left, inner sep = 4] {$2a$}; 
-        \draw (O) node[circle, draw, fill=white, inner sep = 3] {}
-            node [circle, fill=black, inner sep = 1.5 ]{} 
-            node[above left] {$O$}
-            node[below right] {$z$};
-    \end{tikzpicture}
-    \caption{Slika 4.1}
-\end{figure}
+\begin{tikzpicture}
+    % Coordinates
+    \coordinate (O) at (0, 0);
+    \coordinate (A) at (-2, 0);
+    \coordinate (B) at (2, 0);
+    \coordinate (M) at (0, 4);
+    
+    % Coordinate system
+    \draw[-Latex] (-3, 0) -- (3, 0) node [below] {$x$};
+    \draw[-Latex] (0, -.5) -- (0, 4.5) node [right] {$y$};
+    
+    % Epsilon 0
+    \node at (-3, 4) {$\varepsilon_0$};
+    
+    % Point charges and origin
+    \draw (A) node[circle, fill, inner sep =1.5] {} 
+        node [above, inner sep = 10] {$A$} 
+        node [below right, inner sep = 5] {$Q_1$} 
+        node [below left, inner sep = 5] {$-a$}; 
+    \draw (B) node[circle, fill, inner sep = 1.5] {} 
+        node [above, inner sep = 10] {$B$} 
+        node [below right, inner sep = 5] {$Q_2$} 
+        node [below left, inner sep = 5] {$a$}; 
+    \draw (M) node[circle, fill, inner sep = 1.5] {} 
+        node [right, inner sep = 5] {$M$} 
+        node [above left, inner sep = 4] {$Q_3$} 
+        node [below left, inner sep = 4] {$2a$}; 
+    \draw (O) node[circle, draw, fill=white, inner sep = 3] {}
+        node [circle, fill=black, inner sep = 1.5 ]{} 
+        node[above left] {$O$}
+        node[below right] {$z$};
+\end{tikzpicture}

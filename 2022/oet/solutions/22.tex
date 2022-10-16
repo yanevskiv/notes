@@ -1,0 +1,12 @@
+\begin{align*}
+    \mathrm dE &= \frac{\mathrm dQ}{4\pi\varepsilon_0r^2},\ \mathrm dE_n = \mathrm dE\cos\theta,\ \mathrm dE_p = -\mathrm dE\sin\theta\\
+    \mathrm dQ &= Q'\cdot\mathrm d\ell = Q'dp, dp > 0\\
+    \cos\theta &= \frac{D}{r},\ \frac{1}{4} = \frac{\cos\theta}{D}\\
+    \tan\theta &= \frac{p}{D},\ \mathrm d(\tan\theta) = \mathrm d\left(\frac{p}{D}\right) = \frac{\mathrm dp}{D}\\
+    \frac{\mathrm d(\tan\theta)}{\mathrm d\theta}\mathrm d\theta &= \frac{\mathrm dp}{D},\ \frac{1}{\cos^2\theta}\mathrm d\theta = \frac{\mathrm dp}{D},\ \mathrm d\theta > 0\\
+    \mathrm dE &= \frac{Q'\cancel{D}\mathrm d\theta}{\cancel{\cos^2\theta}}\frac{\cancel{\cos^2\theta}}{4\pi\varepsilon_0D^2} = \frac{Q'\mathrm d\theta}{4\pi\varepsilon_0 D}\\
+    \mathrm dE_n &= \frac{Q'}{4\pi\varepsilon_0 D}\cos\theta\mathrm d\theta,\; \mathrm dE_p = -\frac{Q'}{4\pi\varepsilon_0 D}\sin\theta\mathrm d\theta\\
+    E_n &= \int_L\mathrm dE_n = \int_{\theta_1}^{\theta_2}\frac{Q'}{4\pi\varepsilon_0 D}\cos\theta\mathrm d\theta = \frac{Q'}{4\pi\varepsilon_0 D}\cdot (\sin\theta_1 - \sin\theta_2), \boxed{-\frac{\pi}{2}\leq\theta_1\leq\theta_2\leq\frac{\pi}{2}}\\
+    E_p &= \int_L\mathrm dE_p = \int_{\theta_1}^{\theta_2}\frac{Q'}{4\pi\varepsilon_0 D}(-\sin\theta)\mathrm d\theta = \frac{Q'}{4\pi\varepsilon_0 D}\cdot (\cos\theta_2 - \cos\theta_1)\\
+    \mathbf{E} &= \boxed{E_n\mathbf{i_n} + E_p\mathbf{i_p} = \frac{Q'}{4\pi\varepsilon_0 D}\left((\sin\theta_2 - \sin\theta_1)\mathbf{i_n} + (\cos\theta_2 - \cos\theta_1)\mathbf{i_p}\right)}
+\end{align*}

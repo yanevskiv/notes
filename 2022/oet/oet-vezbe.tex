@@ -12,16 +12,21 @@
 \usepackage{amssymb}
 \usepackage{pgfplots}
 \usepackage{cancel}
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage[hidelinks]{hyperref}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta}
-\usepackage[T1,OT2]{fontenc}
-\usepackage[serbian]{babel}
 \title{Osnovi elektrotehnike 1 - Zadaci sa ve\v{z}bi - Skripta}
 \author{Marko \v{Z}uti\'{c}, Ivan Janevski}
 \date{Oktobar 2022}
 \renewcommand{\contentsname}{Sadr\v{z}aj}
 \titleformat{\section}[display]{\normalfont\bfseries}{}{0pt}{\huge}
 \captionsetup{labelformat=empty}
+
+% Cyrillic settings
+\usepackage[T1,OT2]{fontenc}
+\usepackage[serbian]{babel}
 \newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
 \newcommand\textlat[1]{{\fontencoding{T1}\fontfamily{wncyr}\selectfont #1}}
 \newcommand\cyrillic{\fontencoding{OT2}\fontfamily{wncyr}\selectfont}
@@ -30,14 +35,54 @@
 \begin{document}
 \maketitle
 \newpage
-\tableofcontents
+\hspace{0pt}
+\vfill
+\begin{center}
+Ova skripta je otvorenog koda (\textlat{GNU Free Documentation License}) \v{c}iji se izvori\v{s}ni kod mo\v{z}e na\'{c}i na linku:\\ \textlat{\url{https://github.com/yanevskiv/notes/tree/master/2022/oet}}
+\end{center}
+\vfill
+\hspace{0pt}
+\newpage
+\tableofcontents{}
 \newpage
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 \chapter{Ve\v{z}be}
-\section{Prva nedelja}
 
-\input{sections/4_problem.tex}
-\input{sections/6_problem.tex}
-\input{sections/14_problem.tex}
+\begin{enumerate}
+    \item tro\v{c}as
+    \begin{itemize}
+        \item Kulonov zakon: 4, 6, (5)
+        \item Gustine naelektrisanja: 14, 15, 17, 18, (16)
+        \item Vektor ja\v{c}ine elektri\v{c}nog polja: 9, 22 (19, 21)
+    \end{itemize}
+    \item tro\v{c}as
+    \begin{itemize}
+        \item 23 $+$ 25, 28, 32, 34, 37 (24, 29, 30, 36)
+        \item Potencijal: 39, 48, 51
+    \end{itemize}
+\end{enumerate}
+
+\clearpage
+\section{1. nedelja}
+\input{problems/4.tex}
+\input{problems/6.tex}
+\input{problems/9.tex}
+\input{problems/14.tex}
+\input{problems/15.tex}
+\input{problems/17.tex}
+\input{problems/18.tex}
+\input{problems/22.tex}
+
+\clearpage
+\section{2. nedelja}
+\input{problems/23.tex}
+\input{problems/25.tex}
+\input{problems/28.tex}
+\input{problems/32.tex}
+\input{problems/34.tex}
+\input{problems/37.tex}
+\input{problems/39.tex}
+\input{problems/48.tex}
+\input{problems/51.tex}
 
 \end{document}
